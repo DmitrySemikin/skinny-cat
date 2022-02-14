@@ -5,20 +5,20 @@
   * Menu name (text, opt)
   * Menu week (opt)
   * Menu day (opt)
-  * Dishes (free text, opt)
+  * Dishes-line (free text, opt)
   * Groceries list (reference to separate table)
   * (advanced) Scan of the page
 
-* Groceries
+* Foodstuff
   * Name
   * Quantity Unit
 
-* Groceries list
+* Foodstuff list
   * Grocery ref
   * Quantity
 
-* Active list
-  * List ID
+* Menu list
+  * List Name (generated from date)
   * References to day menus
 
 
