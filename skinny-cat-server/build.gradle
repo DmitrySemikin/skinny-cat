@@ -8,10 +8,6 @@ repositories {
 }
 
 dependencies {
-
-//    String wildflyVersion = "26.0.1.Final"
-//    implementation platform("org.wildfly.bom:wildfly-jakartaee8-with-tools:${wildflyVersion}")
-
     String jakartaEeVersion = "8.0.0"
     providedCompile "jakarta.platform:jakarta.jakartaee-api:${jakartaEeVersion}"
 }

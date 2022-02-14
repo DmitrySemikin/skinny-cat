@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>skinny-cat</context-root>
+</jboss-web>
