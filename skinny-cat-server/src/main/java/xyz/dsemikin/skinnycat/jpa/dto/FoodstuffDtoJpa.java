@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity(name = "foodstuff")
 @Table(name = "foodstuff")
-public class FoodstuffDto {
+public class FoodstuffDtoJpa {
 
     @Id
     @GeneratedValue
@@ -17,7 +17,13 @@ public class FoodstuffDto {
     private String name;
     private FoodstuffUnit unit;
 
-    public FoodstuffDto(long id, String name, FoodstuffUnit unit) {
+    public FoodstuffDtoJpa() {
+        id = 0;
+        name = "";
+        unit = FoodstuffUnit.UNIT;
+    }
+
+    public FoodstuffDtoJpa(long id, String name, FoodstuffUnit unit) {
         this.id = id;
         this.name = name;
         this.unit = unit;

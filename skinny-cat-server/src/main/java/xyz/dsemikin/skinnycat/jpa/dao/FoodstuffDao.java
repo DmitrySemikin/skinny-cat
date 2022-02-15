@@ -1,6 +1,6 @@
 package xyz.dsemikin.skinnycat.jpa.dao;
 
-import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDto;
+import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpa;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -14,7 +14,7 @@ public class FoodstuffDao {
     @Inject
     private EntityManagerProvider entityManager;
 
-    public void put(final FoodstuffDto foodstuff) {
+    public void put(final FoodstuffDtoJpa foodstuff) {
         entityManager.em().persist(foodstuff);
     }
 
@@ -26,12 +26,12 @@ public class FoodstuffDao {
     }
 
     public static final String ALL = "from foodstuff";
-    public List<FoodstuffDto> all() {
-        final TypedQuery<FoodstuffDto> query = entityManager.em().createQuery(ALL, FoodstuffDto.class);
+    public List<FoodstuffDtoJpa> all() {
+        final TypedQuery<FoodstuffDtoJpa> query = entityManager.em().createQuery(ALL, FoodstuffDtoJpa.class);
         return query.getResultList();
     }
 
-    public FoodstuffDto findById(final long id) {
-        return entityManager.em().find(FoodstuffDto.class, id);
+    public FoodstuffDtoJpa findById(final long id) {
+        return entityManager.em().find(FoodstuffDtoJpa.class, id);
     }
 }

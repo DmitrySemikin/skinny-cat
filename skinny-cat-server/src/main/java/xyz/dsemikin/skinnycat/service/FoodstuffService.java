@@ -5,7 +5,7 @@ import javax.inject.Inject;
 
 import xyz.dsemikin.skinnycat.data.Foodstuff;
 import xyz.dsemikin.skinnycat.jpa.dao.FoodstuffDao;
-import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDto;
+import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpa;
 import xyz.dsemikin.skinnycat.jpa.mapper.FoodstuffJpaMapper;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class FoodstuffService {
     }
 
     public Optional<Foodstuff> findById(final long id) {
-        final FoodstuffDto dto = foodstuffDao.findById(id);
+        final FoodstuffDtoJpa dto = foodstuffDao.findById(id);
         if (dto == null) {
             return Optional.empty();
         } else {
