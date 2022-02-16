@@ -1,11 +1,12 @@
-package xyz.dsemikin.skinnycat.guiswing;
+package xyz.dsemikin.skinnycat.guiswing.gui;
+
+import xyz.dsemikin.skinnycat.guiswing.gui.foodstuff.FoodstuffWindow;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 
@@ -35,7 +36,7 @@ public class SkinnyCatMainWindow {
     }
 
     private void startFoodstuffEditor() {
-        new FoodstuffEditor();
+        new FoodstuffWindow();
     }
 
 }

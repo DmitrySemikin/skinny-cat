@@ -1,4 +1,4 @@
-package xyz.dsemikin.skinnycat.data;
+package data;
 
 public record Foodstuff(
         long id,

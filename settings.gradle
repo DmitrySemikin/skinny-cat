@@ -1,3 +1,4 @@
 rootProject.name = 'skinny-cat-root'
 include('skinny-cat-server')
 include('skinny-cat-gui-swing')
+include('skinny-cat-data')

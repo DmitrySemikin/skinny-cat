@@ -7,6 +7,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(":skinny-cat-data")
 }
 
 application {

@@ -1,6 +1,6 @@
 package xyz.dsemikin.skinnycat.jpa.mapper;
 
-import xyz.dsemikin.skinnycat.data.Foodstuff;
+import data.Foodstuff;
 import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpa;
 
 import javax.ejb.Stateless;
