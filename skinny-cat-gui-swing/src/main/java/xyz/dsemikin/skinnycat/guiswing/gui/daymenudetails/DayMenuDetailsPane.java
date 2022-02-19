@@ -8,11 +8,11 @@ import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-public class DayMenuDetailsFrame {
+public class DayMenuDetailsPane {
 
     private final JPanel contentPane;
 
-    public DayMenuDetailsFrame() {
+    public DayMenuDetailsPane() {
         contentPane = new JPanel();
 
         contentPane.setLayout(new GridBagLayout());

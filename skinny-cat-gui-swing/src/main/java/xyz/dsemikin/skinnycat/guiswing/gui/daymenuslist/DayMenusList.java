@@ -1,6 +1,6 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.daymenuslist;
 
-import xyz.dsemikin.skinnycat.guiswing.gui.daymenudetails.DayMenuDetailsFrame;
+import xyz.dsemikin.skinnycat.guiswing.gui.daymenudetails.DayMenuDetailsPane;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -11,6 +11,8 @@ import java.awt.GridBagLayout;
 public class DayMenusList {
 
     private final JPanel contentPane;
+    private final JTable dayMenusTable;
+    private final DayMenuDetailsPane dayMenuDetails;
 
     public DayMenusList() {
 
@@ -18,7 +20,8 @@ public class DayMenusList {
 
         contentPane.setLayout(new GridBagLayout());
 
-        final JTable dayMenusTable = new JTable(); // TODO: We need model and scroller here
+        // TODO: We need model and scroller here
+        dayMenusTable = new JTable();
         dayMenusTable.setFillsViewportHeight(true);
         final JScrollPane scrollPane = new JScrollPane(dayMenusTable);
         final GridBagConstraints dayMenusTableConstraints = new GridBagConstraints();
@@ -30,7 +33,7 @@ public class DayMenusList {
         contentPane.add(scrollPane, dayMenusTableConstraints);
 
 
-        final DayMenuDetailsFrame dayMenuDetails = new DayMenuDetailsFrame();
+        dayMenuDetails = new DayMenuDetailsPane();
         final GridBagConstraints dayMenuDetailsConstraints = new GridBagConstraints();
         dayMenuDetailsConstraints.gridx = 0;
         dayMenuDetailsConstraints.gridy = 1;
@@ -42,5 +45,13 @@ public class DayMenusList {
 
     public JPanel rootPane() {
         return contentPane;
+    }
+
+    public JTable dayMenusTable() {
+        return dayMenusTable;
+    }
+
+    public DayMenuDetailsPane dayMenuDetailsPane() {
+        return dayMenuDetails;
     }
 }

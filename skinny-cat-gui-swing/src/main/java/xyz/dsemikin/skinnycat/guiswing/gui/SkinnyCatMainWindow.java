@@ -122,6 +122,7 @@ public class SkinnyCatMainWindow {
         activeDayMenusConstraints.fill = GridBagConstraints.BOTH;
         contentPane.add(activeDayMenus.rootPane(), activeDayMenusConstraints);
 
+        final AllDayMenusViewController allDayMenusViewController = new AllDayMenusViewController(allDayMenus);
 
         frame.pack();
         frame.setVisible(true);
