@@ -9,14 +9,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.table.TableColumn;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 public class FoodstuffWindow {
 
-    private final JFrame frame;
-
     public FoodstuffWindow() {
-        frame = new JFrame("Foodstuff Editor");
+        JFrame frame = new JFrame("Foodstuff Editor");
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
+        final Container contentPane = frame.getContentPane();
+        contentPane.setLayout(new GridBagLayout());
 
         final JTable table = new JTable(new FoodstuffTableModel());
         table.setFillsViewportHeight(true);
@@ -31,7 +35,14 @@ public class FoodstuffWindow {
 
         final JScrollPane scrollPane = new JScrollPane(table);
 
-        frame.add(scrollPane);
+        final GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 2;
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.weightx = 1.0;
+        constraints.weighty = 1.0;
+        contentPane.add(scrollPane, constraints);
 
         frame.setSize(500, 500);
         frame.setVisible(true);
