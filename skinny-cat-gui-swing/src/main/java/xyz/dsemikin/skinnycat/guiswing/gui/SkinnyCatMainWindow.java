@@ -34,16 +34,15 @@ public class SkinnyCatMainWindow {
         contentPane.add(dayMenusLabel, dayMenusLabelConstraint);
 
 
-        final JButton startFoodstuffEditorButton = new JButton("Manage Foodstuffs");
+        final JButton startFoodstuffEditorButton = new JButton("Manage Foodstuffs...");
         startFoodstuffEditorButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 startFoodstuffEditor();
             }
         });
-
         final GridBagConstraints startFoodstuffEditorButtonConstraints = new GridBagConstraints();
-        startFoodstuffEditorButtonConstraints.gridx = 1;
+        startFoodstuffEditorButtonConstraints.gridx = 0;
         startFoodstuffEditorButtonConstraints.gridy = 1;
         startFoodstuffEditorButtonConstraints.weightx = 0.0;
         startFoodstuffEditorButtonConstraints.weighty = 0.0;
@@ -52,7 +51,7 @@ public class SkinnyCatMainWindow {
 
         final JButton addDayMenuToActiveButton = new JButton(">>");
         final GridBagConstraints addDayMenuToActiveButtonConstraints = new GridBagConstraints();
-        addDayMenuToActiveButtonConstraints.gridx = 2;
+        addDayMenuToActiveButtonConstraints.gridx = 1;
         addDayMenuToActiveButtonConstraints.gridy = 1;
         addDayMenuToActiveButtonConstraints.weightx = 0.0;
         addDayMenuToActiveButtonConstraints.weighty = 0.0;
@@ -70,9 +69,11 @@ public class SkinnyCatMainWindow {
         contentPane.add(allDayMenus.rootPane(), allDayMenusConstraints);
 
 
+        final int gridX2ndColumn = 3;
+
         final JLabel activeDayMenusLabel = new JLabel("Active Day Menus");
         final GridBagConstraints activeDayMenusLabelConstraints = new GridBagConstraints();
-        activeDayMenusLabelConstraints.gridx = 3;
+        activeDayMenusLabelConstraints.gridx = gridX2ndColumn;
         activeDayMenusLabelConstraints.gridy = 0;
         activeDayMenusLabelConstraints.gridwidth = 5;
         activeDayMenusLabelConstraints.weightx = 1.0;
@@ -83,19 +84,37 @@ public class SkinnyCatMainWindow {
 
         final JButton deleteActiveMenuButton = new JButton("Delete");
         final GridBagConstraints deleteActiveMenuButtonConstraints = new GridBagConstraints();
-        deleteActiveMenuButtonConstraints.gridx = 3;
+        deleteActiveMenuButtonConstraints.gridx = gridX2ndColumn;
         deleteActiveMenuButtonConstraints.gridy = 1;
         deleteActiveMenuButtonConstraints.weightx = 0.0;
         deleteActiveMenuButtonConstraints.weighty = 0.0;
         contentPane.add(deleteActiveMenuButton, deleteActiveMenuButtonConstraints);
 
 
-        // TODO: More buttons here
+        final JButton upActiveMenuButton = new JButton("Up");
+        final GridBagConstraints upActiveMenuButtonConstraints = new GridBagConstraints();
+        upActiveMenuButtonConstraints.gridx = gridX2ndColumn + 1;
+        upActiveMenuButtonConstraints.gridy = 1;
+        contentPane.add(upActiveMenuButton, upActiveMenuButtonConstraints);
+
+
+        final JButton downActiveMenuButton = new JButton("Down");
+        final GridBagConstraints downActiveMenuButtonConstraints = new GridBagConstraints();
+        downActiveMenuButtonConstraints.gridx = gridX2ndColumn + 2;
+        downActiveMenuButtonConstraints.gridy = 1;
+        contentPane.add(downActiveMenuButton, downActiveMenuButtonConstraints);
+
+
+        final JButton fullFoodstuffListButton = new JButton("Full Foodstuff List...");
+        final GridBagConstraints fullFoodstuffListButtonConstraints = new GridBagConstraints();
+        fullFoodstuffListButtonConstraints.gridx = gridX2ndColumn + 3;
+        fullFoodstuffListButtonConstraints.gridy = 1;
+        contentPane.add(fullFoodstuffListButton, fullFoodstuffListButtonConstraints);
 
 
         final DayMenusList activeDayMenus = new DayMenusList();
         final GridBagConstraints activeDayMenusConstraints = new GridBagConstraints();
-        activeDayMenusConstraints.gridx = 3;
+        activeDayMenusConstraints.gridx = gridX2ndColumn;
         activeDayMenusConstraints.gridy = 2;
         activeDayMenusConstraints.gridwidth = 5;
         activeDayMenusConstraints.weightx = 1.0;
