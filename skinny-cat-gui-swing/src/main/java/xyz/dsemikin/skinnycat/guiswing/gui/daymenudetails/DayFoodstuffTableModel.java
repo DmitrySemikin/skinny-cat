@@ -1,30 +1,35 @@
-package xyz.dsemikin.skinnycat.guiswing.gui;
+package xyz.dsemikin.skinnycat.guiswing.gui.daymenudetails;
 
-import data.DayMenu;
-import xyz.dsemikin.skinnycat.guiswing.logic.AllDayMenusController;
+import xyz.dsemikin.skinnycat.guiswing.logic.DayMenuDetailsController;
+import xyz.dsemikin.skynnycat.data.Foodstuff;
+import xyz.dsemikin.skynnycat.data.FoodstuffUse;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-public class AllDayMenusTableModel extends AbstractTableModel {
+public class DayFoodstuffTableModel extends AbstractTableModel {
 
-    private static final int NAME_COLUMN_IDX = 0;
-    private static final int DESCRIPTION_COLUMN_IDX = 1;
+    private static final int FOODSTUFF_COLUMN_IDX = 0;
+    private static final int QUANTITY_COLUMN_IDX = 1;
     private static final int COLUMN_COUNT = 2; // one after the latest real one.
 
-    private final AllDayMenusController controller;
+    private final DayMenuDetailsController controller;
+
+    // in this case it is not IDs of objects, but rather indices
+    // in the array of controller. It could be used to simplify the structures,
+    // but we will not do it
     private List<Long> ids;
 
-    public AllDayMenusTableModel(final AllDayMenusController controller) {
+    public DayFoodstuffTableModel(final DayMenuDetailsController controller) {
         this.controller = controller;
-        ids = controller.allIds();
+        ids = controller.allFoodstuffUsesIds();
     }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         return switch(columnIndex) {
-            case NAME_COLUMN_IDX -> String.class;
-            case DESCRIPTION_COLUMN_IDX -> String.class;
+            case FOODSTUFF_COLUMN_IDX -> Foodstuff.class;
+            case QUANTITY_COLUMN_IDX -> Double.class;
             default -> throw new IllegalArgumentException("Must be 0 or 1, but it is " + columnIndex);
         };
     }
@@ -41,10 +46,10 @@ public class AllDayMenusTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        final DayMenu dayMenu = controller.get(ids.get(rowIndex)).get();
+        final FoodstuffUse foodstuffUse = controller.getFoodstuffUse(ids.get(rowIndex));
         return switch(columnIndex) {
-            case NAME_COLUMN_IDX -> dayMenu.name();
-            case DESCRIPTION_COLUMN_IDX -> dayMenu.description();
+            case FOODSTUFF_COLUMN_IDX -> foodstuffUse.foodstuff().name() + "(" + foodstuffUse.foodstuff().unit().toString() + ")";
+            case QUANTITY_COLUMN_IDX -> foodstuffUse.quantity();
             default -> throw new IllegalArgumentException("Must be 0 or 1, but it is " + columnIndex);
         };
     }
@@ -52,8 +57,8 @@ public class AllDayMenusTableModel extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         return switch(column) {
-            case NAME_COLUMN_IDX -> "Name";
-            case DESCRIPTION_COLUMN_IDX -> "Description";
+            case FOODSTUFF_COLUMN_IDX -> "Foodstuff";
+            case QUANTITY_COLUMN_IDX -> "Quantity";
             default -> throw new IllegalArgumentException("Must be 0 or 1, but it is " + column);
         };
     }
@@ -67,19 +72,17 @@ public class AllDayMenusTableModel extends AbstractTableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         // TODO
         switch (columnIndex) {
-            case NAME_COLUMN_IDX -> controller.setName(ids.get(rowIndex), (String) aValue);
-            case DESCRIPTION_COLUMN_IDX -> controller.setDescription(ids.get(rowIndex), (String)aValue);
+            case FOODSTUFF_COLUMN_IDX -> controller.setFoodstuff(ids.get(rowIndex), (Foodstuff) aValue);
+            case QUANTITY_COLUMN_IDX -> controller.setQuantity(ids.get(rowIndex), (Double)aValue);
             default -> throw new IllegalArgumentException("columnIndex must be 0 or 1, but it is " + columnIndex);
         }
         refreshData();
     }
 
-    private void refreshData() {
-        ids = controller.allIds();
+    public void refreshData() {
+        ids = controller.allFoodstuffUsesIds();
         // Theoretically we could use more efficient ways,
         // but performance in not a concern in this case
         fireTableDataChanged();
     }
-
-
 }

@@ -1,6 +1,6 @@
 package xyz.dsemikin.skinnycat.rest.dto;
 
-import data.FoodstuffUnit;
+import xyz.dsemikin.skynnycat.data.FoodstuffUnit;
 
 public class FoodstuffDtoRest {
 

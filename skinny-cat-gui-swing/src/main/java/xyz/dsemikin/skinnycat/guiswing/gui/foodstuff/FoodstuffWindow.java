@@ -1,6 +1,7 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.foodstuff;
 
-import data.FoodstuffUnit;
+import xyz.dsemikin.skinnycat.guiswing.logic.FoodstuffController;
+import xyz.dsemikin.skynnycat.data.FoodstuffUnit;
 
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
@@ -15,14 +16,14 @@ import java.awt.GridBagLayout;
 
 public class FoodstuffWindow {
 
-    public FoodstuffWindow() {
+    public FoodstuffWindow(final FoodstuffController foodstuffController) {
         JFrame frame = new JFrame("Foodstuff Editor");
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         final Container contentPane = frame.getContentPane();
         contentPane.setLayout(new GridBagLayout());
 
-        final JTable table = new JTable(new FoodstuffTableModel());
+        final JTable table = new JTable(new FoodstuffTableModel(foodstuffController));
         table.setFillsViewportHeight(true);
 
         // TODO: Can we do it inside table model? Should we do it there? Probably yes

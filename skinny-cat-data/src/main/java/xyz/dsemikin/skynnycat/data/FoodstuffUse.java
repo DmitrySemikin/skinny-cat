@@ -1,7 +1,7 @@
-package data;
+package xyz.dsemikin.skynnycat.data;
 
 public record FoodstuffUse(
         Foodstuff foodstuff,
-        int quantity
+        double quantity
 )
 {}

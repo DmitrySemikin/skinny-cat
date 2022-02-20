@@ -1,4 +1,4 @@
-package data;
+package xyz.dsemikin.skynnycat.data;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class DayMenu {
         return name;
     }
 
-    public void name(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -37,7 +37,7 @@ public class DayMenu {
         return description;
     }
 
-    public void description(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -45,7 +45,7 @@ public class DayMenu {
         return foodstuffs;
     }
 
-    public void replaceFoodstuffs(final List<FoodstuffUse> foodstuffs) {
+    public void setFoodstuffs(final List<FoodstuffUse> foodstuffs) {
         this.foodstuffs.clear();
         this.foodstuffs.addAll(foodstuffs);
     }

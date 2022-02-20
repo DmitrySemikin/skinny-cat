@@ -8,15 +8,19 @@ import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-public class DayMenuDetailsPane {
+/** View of the DayMenuDetailsPanel GUI element. Responsible for visual presentation and "visual behavior" (resizing, tab sequence etc.) */
+public class DayMenuDetailsPanelView {
 
-    private final JPanel contentPane;
+    private final JPanel rootPane;
 
-    public DayMenuDetailsPane() {
-        contentPane = new JPanel();
+    private final JTextField nameText;
+    private final JTextField descriptionText;
+    private final JTable foodstuffTable;
 
-        contentPane.setLayout(new GridBagLayout());
+    public DayMenuDetailsPanelView() {
+        rootPane = new JPanel();
 
+        rootPane.setLayout(new GridBagLayout());
 
         final JLabel nameLabel = new JLabel("Name");
         final GridBagConstraints nameLabelConstraints = new GridBagConstraints();
@@ -24,39 +28,36 @@ public class DayMenuDetailsPane {
         nameLabelConstraints.gridy = 0;
         nameLabelConstraints.weightx = 0.0;
         nameLabelConstraints.weighty = 0.0;
-        contentPane.add(nameLabel, nameLabelConstraints);
+        rootPane.add(nameLabel, nameLabelConstraints);
 
-
-        final JTextField nameText = new JTextField();
+        nameText = new JTextField();
         final GridBagConstraints nameTextConstraints = new GridBagConstraints();
         nameTextConstraints.gridx = 1;
         nameTextConstraints.gridy = 0;
         nameTextConstraints.weightx = 1.0;
         nameTextConstraints.weighty = 0.0;
         nameTextConstraints.fill = GridBagConstraints.HORIZONTAL;
-        contentPane.add(nameText, nameTextConstraints);
+        rootPane.add(nameText, nameTextConstraints);
 
-
-        final JLabel menuLabel = new JLabel("Menu:");
+        final JLabel descriptionLabel = new JLabel("Description:");
         final GridBagConstraints menuLabelConstraints = new GridBagConstraints();
         menuLabelConstraints.gridx = 0;
         menuLabelConstraints.gridy = 1;
         menuLabelConstraints.weightx = 0.0;
         menuLabelConstraints.weighty = 0.0;
-        contentPane.add(menuLabel, menuLabelConstraints);
+        rootPane.add(descriptionLabel, menuLabelConstraints);
 
-
-        final JTextField menuText = new JTextField();
+        descriptionText = new JTextField();
         final GridBagConstraints menuTextConstraints = new GridBagConstraints();
         menuTextConstraints.gridx = 1;
         menuTextConstraints.gridy = 1;
         menuTextConstraints.weightx = 1.0;
         menuTextConstraints.weighty = 0.0;
         menuTextConstraints.fill = GridBagConstraints.HORIZONTAL;
-        contentPane.add(menuText, menuTextConstraints);
+        rootPane.add(descriptionText, menuTextConstraints);
 
-
-        final JTable foodstuffTable = new JTable(); // TODO: we need model here
+        // TODO: we need model here
+        foodstuffTable = new JTable();
         foodstuffTable.setFillsViewportHeight(true);
         final JScrollPane scrollPane = new JScrollPane(foodstuffTable);
         final GridBagConstraints foodstuffTableConstraints = new GridBagConstraints();
@@ -66,14 +67,22 @@ public class DayMenuDetailsPane {
         foodstuffTableConstraints.weightx = 1.0;
         foodstuffTableConstraints.weighty = 1.0;
         foodstuffTableConstraints.fill = GridBagConstraints.BOTH;
-        contentPane.add(scrollPane, foodstuffTableConstraints);
-
-
-//        frame.pack();
-//        frame.setVisible(true);
+        rootPane.add(scrollPane, foodstuffTableConstraints);
     }
 
-    public JPanel rootPane() {
-        return contentPane;
+    public JPanel rootPanel() {
+        return rootPane;
+    }
+
+    public JTextField nameText() {
+        return nameText;
+    }
+
+    public JTextField descriptionText() {
+        return descriptionText;
+    }
+
+    public JTable getFoodstuffTable() {
+        return foodstuffTable;
     }
 }

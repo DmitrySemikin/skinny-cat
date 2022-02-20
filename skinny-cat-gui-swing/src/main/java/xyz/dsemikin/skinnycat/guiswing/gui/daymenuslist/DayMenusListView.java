@@ -1,6 +1,7 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.daymenuslist;
 
-import xyz.dsemikin.skinnycat.guiswing.gui.daymenudetails.DayMenuDetailsPane;
+import xyz.dsemikin.skinnycat.guiswing.gui.daymenudetails.DayMenuDetailsPanel;
+import xyz.dsemikin.skinnycat.guiswing.logic.DayMenuDetailsController;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -8,13 +9,13 @@ import javax.swing.JTable;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-public class DayMenusList {
+public class DayMenusListView {
 
     private final JPanel contentPane;
     private final JTable dayMenusTable;
-    private final DayMenuDetailsPane dayMenuDetails;
+    private final DayMenuDetailsPanel dayMenuDetails;
 
-    public DayMenusList() {
+    public DayMenusListView(final DayMenuDetailsController dayMenuDetailsController) {
 
         contentPane = new JPanel();
 
@@ -32,15 +33,14 @@ public class DayMenusList {
         dayMenusTableConstraints.fill = GridBagConstraints.BOTH;
         contentPane.add(scrollPane, dayMenusTableConstraints);
 
-
-        dayMenuDetails = new DayMenuDetailsPane();
+        dayMenuDetails = new DayMenuDetailsPanel(dayMenuDetailsController);
         final GridBagConstraints dayMenuDetailsConstraints = new GridBagConstraints();
         dayMenuDetailsConstraints.gridx = 0;
         dayMenuDetailsConstraints.gridy = 1;
         dayMenuDetailsConstraints.weightx = 1.0;
         dayMenuDetailsConstraints.weighty = 1.0;
         dayMenuDetailsConstraints.fill = GridBagConstraints.BOTH;
-        contentPane.add(dayMenuDetails.rootPane(), dayMenuDetailsConstraints);
+        contentPane.add(dayMenuDetails.rootPanel(), dayMenuDetailsConstraints);
     }
 
     public JPanel rootPane() {
@@ -51,7 +51,7 @@ public class DayMenusList {
         return dayMenusTable;
     }
 
-    public DayMenuDetailsPane dayMenuDetailsPane() {
+    public DayMenuDetailsPanel dayMenuDetailsPane() {
         return dayMenuDetails;
     }
 }

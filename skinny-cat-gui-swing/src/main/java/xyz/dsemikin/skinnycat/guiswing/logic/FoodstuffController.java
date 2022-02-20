@@ -1,7 +1,7 @@
 package xyz.dsemikin.skinnycat.guiswing.logic;
 
-import data.Foodstuff;
-import data.FoodstuffUnit;
+import xyz.dsemikin.skynnycat.data.Foodstuff;
+import xyz.dsemikin.skynnycat.data.FoodstuffUnit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class FoodstuffController {
     }
 
     public void addFoodstuff(final String name, final FoodstuffUnit unit) {
-        // TODO: add check for name uniqueness
+        // TODO: add check for setName uniqueness
         final Optional<Long> maybeMaxId = content.stream().map(Foodstuff::id).max(Long::compareTo);
         final long newId = maybeMaxId.orElse(0L) + 1L;
         final Foodstuff newFoodstuff = new Foodstuff(newId, name, unit);

@@ -1,9 +1,9 @@
 package xyz.dsemikin.skinnycat.service;
 
-import data.Foodstuff;
 import xyz.dsemikin.skinnycat.jpa.dao.FoodstuffDao;
 import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpa;
 import xyz.dsemikin.skinnycat.jpa.mapper.FoodstuffJpaMapper;
+import xyz.dsemikin.skynnycat.data.Foodstuff;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

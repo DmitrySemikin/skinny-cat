@@ -1,6 +1,6 @@
 package xyz.dsemikin.skinnycat.jpa.dto;
 
-import data.FoodstuffUnit;
+import xyz.dsemikin.skynnycat.data.FoodstuffUnit;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

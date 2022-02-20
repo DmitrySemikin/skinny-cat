@@ -1,8 +1,8 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.foodstuff;
 
-import data.Foodstuff;
-import data.FoodstuffUnit;
 import xyz.dsemikin.skinnycat.guiswing.logic.FoodstuffController;
+import xyz.dsemikin.skynnycat.data.Foodstuff;
+import xyz.dsemikin.skynnycat.data.FoodstuffUnit;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
@@ -15,8 +15,8 @@ class FoodstuffTableModel extends AbstractTableModel {
     private final FoodstuffController controller;
     private List<Long> ids;
 
-    public FoodstuffTableModel() {
-        controller = new FoodstuffController();
+    public FoodstuffTableModel(final FoodstuffController foodstuffController) {
+        controller = foodstuffController;
         ids = controller.allIds();
     }
 
