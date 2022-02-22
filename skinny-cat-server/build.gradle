@@ -10,6 +10,7 @@ repositories {
 dependencies {
 
     implementation project(":skinny-cat-data")
+    implementation project(":skinny-cat-jpa")
 
     String jakartaEeVersion = "8.0.0"
     providedCompile "jakarta.platform:jakarta.jakartaee-api:${jakartaEeVersion}"

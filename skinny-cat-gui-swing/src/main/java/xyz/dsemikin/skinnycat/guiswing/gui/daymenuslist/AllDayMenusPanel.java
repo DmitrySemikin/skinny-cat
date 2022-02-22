@@ -1,8 +1,8 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.daymenuslist;
 
+import xyz.dsemikin.skinnycat.data.DayMenu;
 import xyz.dsemikin.skinnycat.guiswing.logic.AllDayMenusController;
 import xyz.dsemikin.skinnycat.guiswing.logic.DayMenuDetailsController;
-import xyz.dsemikin.skynnycat.data.DayMenu;
 
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;

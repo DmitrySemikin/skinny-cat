@@ -8,6 +8,11 @@ repositories {
 
 dependencies {
     implementation project(":skinny-cat-data")
+    implementation project(":skinny-cat-jpa")
+
+    implementation "org.hibernate:hibernate-core:5.6.5.Final"
+    implementation "com.h2database:h2:2.1.210"
+
 }
 
 application {

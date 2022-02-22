@@ -1,22 +1,22 @@
 package xyz.dsemikin.skinnycat.jpa.mapper;
 
-import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpa;
-import xyz.dsemikin.skynnycat.data.Foodstuff;
+import xyz.dsemikin.skinnycat.data.Foodstuff;
+import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpaLegacy;
 
 import javax.ejb.Stateless;
 import java.util.List;
 
 @Stateless
-public class FoodstuffJpaMapper {
-    public FoodstuffDtoJpa toDto(final Foodstuff foodstuff) {
-        return new FoodstuffDtoJpa(
+public class FoodstuffJpaMapperLegacy {
+    public FoodstuffDtoJpaLegacy toDto(final Foodstuff foodstuff) {
+        return new FoodstuffDtoJpaLegacy(
                 foodstuff.id(),
                 foodstuff.name(),
                 foodstuff.unit()
         );
     }
 
-    public Foodstuff fromDto(final FoodstuffDtoJpa dto) {
+    public Foodstuff fromDto(final FoodstuffDtoJpaLegacy dto) {
         return new Foodstuff(
                 dto.getId(),
                 dto.getName(),
@@ -24,7 +24,7 @@ public class FoodstuffJpaMapper {
         );
     }
 
-    public List<Foodstuff> fromDtoList(final List<FoodstuffDtoJpa> dtoList) {
+    public List<Foodstuff> fromDtoList(final List<FoodstuffDtoJpaLegacy> dtoList) {
         return dtoList.stream().map(this::fromDto).toList();
     }
 }

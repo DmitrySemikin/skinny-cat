@@ -1,4 +1,4 @@
-package xyz.dsemikin.skynnycat.data;
+package xyz.dsemikin.skinnycat.data;
 
 import java.util.List;
 

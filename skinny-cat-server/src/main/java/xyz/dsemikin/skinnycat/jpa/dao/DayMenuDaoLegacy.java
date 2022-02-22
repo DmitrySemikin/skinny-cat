@@ -4,10 +4,10 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 @Stateless
-public class DayMenuDao {
+public class DayMenuDaoLegacy {
 
     @Inject
-    private EntityManagerProvider entityManager;
+    private EntityManagerProviderLegacy entityManager;
 
 
 

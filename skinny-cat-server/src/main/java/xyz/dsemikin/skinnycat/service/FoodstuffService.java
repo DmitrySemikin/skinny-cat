@@ -1,9 +1,9 @@
 package xyz.dsemikin.skinnycat.service;
 
-import xyz.dsemikin.skinnycat.jpa.dao.FoodstuffDao;
-import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpa;
-import xyz.dsemikin.skinnycat.jpa.mapper.FoodstuffJpaMapper;
-import xyz.dsemikin.skynnycat.data.Foodstuff;
+import xyz.dsemikin.skinnycat.data.Foodstuff;
+import xyz.dsemikin.skinnycat.jpa.dao.FoodstuffDaoLegacy;
+import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpaLegacy;
+import xyz.dsemikin.skinnycat.jpa.mapper.FoodstuffJpaMapperLegacy;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -14,10 +14,10 @@ import java.util.Optional;
 public class FoodstuffService {
 
     @Inject
-    private FoodstuffDao foodstuffDao;
+    private FoodstuffDaoLegacy foodstuffDao;
 
     @Inject
-    private FoodstuffJpaMapper mapper;
+    private FoodstuffJpaMapperLegacy mapper;
 
     public void put(final Foodstuff foodstuff) {
         foodstuffDao.put(mapper.toDto(foodstuff));
@@ -32,7 +32,7 @@ public class FoodstuffService {
     }
 
     public Optional<Foodstuff> findById(final long id) {
-        final FoodstuffDtoJpa dto = foodstuffDao.findById(id);
+        final FoodstuffDtoJpaLegacy dto = foodstuffDao.findById(id);
         if (dto == null) {
             return Optional.empty();
         } else {

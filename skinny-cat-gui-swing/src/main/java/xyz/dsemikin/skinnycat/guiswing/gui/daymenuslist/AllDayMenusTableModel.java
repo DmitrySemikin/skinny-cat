@@ -1,7 +1,7 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.daymenuslist;
 
+import xyz.dsemikin.skinnycat.data.DayMenu;
 import xyz.dsemikin.skinnycat.guiswing.logic.AllDayMenusController;
-import xyz.dsemikin.skynnycat.data.DayMenu;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;

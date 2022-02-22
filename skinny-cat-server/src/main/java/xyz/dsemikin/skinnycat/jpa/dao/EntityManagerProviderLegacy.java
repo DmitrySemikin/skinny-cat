@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class EntityManagerProvider {
+public class EntityManagerProviderLegacy {
 
     @PersistenceContext(unitName = "skinny-cat-ds")
     private EntityManager entityManager;

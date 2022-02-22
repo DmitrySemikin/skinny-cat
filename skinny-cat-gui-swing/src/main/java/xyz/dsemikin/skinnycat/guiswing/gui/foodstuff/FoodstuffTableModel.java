@@ -1,8 +1,8 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.foodstuff;
 
+import xyz.dsemikin.skinnycat.data.Foodstuff;
+import xyz.dsemikin.skinnycat.data.FoodstuffUnit;
 import xyz.dsemikin.skinnycat.guiswing.logic.FoodstuffController;
-import xyz.dsemikin.skynnycat.data.Foodstuff;
-import xyz.dsemikin.skynnycat.data.FoodstuffUnit;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;

@@ -1,7 +1,7 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.foodstuff;
 
+import xyz.dsemikin.skinnycat.data.FoodstuffUnit;
 import xyz.dsemikin.skinnycat.guiswing.logic.FoodstuffController;
-import xyz.dsemikin.skynnycat.data.FoodstuffUnit;
 
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;

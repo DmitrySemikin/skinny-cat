@@ -1,23 +1,32 @@
-package xyz.dsemikin.skinnycat.rest.dto;
+package xyz.dsemikin.skinnycat.jpa.dto;
 
 import xyz.dsemikin.skinnycat.data.FoodstuffUnit;
 
-public class FoodstuffDtoRest {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity(name = "foodstuff")
+@Table(name = "foodstuff")
+public class FoodstuffDtoJpa {
+
+    @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private FoodstuffUnit unit;
 
-    public FoodstuffDtoRest(Long id, String name, FoodstuffUnit unit) {
-        this.id = id;
-        this.name = name;
-        this.unit = unit;
-    }
-
-    public FoodstuffDtoRest() {
+    public FoodstuffDtoJpa() {
         id = 0L;
         name = "";
         unit = FoodstuffUnit.UNIT;
+    }
+
+    public FoodstuffDtoJpa(Long id, String name, FoodstuffUnit unit) {
+        this.id = id;
+        this.name = name;
+        this.unit = unit;
     }
 
     public Long getId() {

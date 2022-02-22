@@ -1,7 +1,7 @@
 package xyz.dsemikin.skinnycat.rest.mapper;
 
+import xyz.dsemikin.skinnycat.data.Foodstuff;
 import xyz.dsemikin.skinnycat.rest.dto.FoodstuffDtoRest;
-import xyz.dsemikin.skynnycat.data.Foodstuff;
 
 import java.util.List;
 

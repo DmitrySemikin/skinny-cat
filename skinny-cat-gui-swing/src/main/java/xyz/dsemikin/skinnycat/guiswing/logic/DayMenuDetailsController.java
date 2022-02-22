@@ -1,8 +1,8 @@
 package xyz.dsemikin.skinnycat.guiswing.logic;
 
-import xyz.dsemikin.skynnycat.data.DayMenu;
-import xyz.dsemikin.skynnycat.data.Foodstuff;
-import xyz.dsemikin.skynnycat.data.FoodstuffUse;
+import xyz.dsemikin.skinnycat.data.DayMenu;
+import xyz.dsemikin.skinnycat.data.Foodstuff;
+import xyz.dsemikin.skinnycat.data.FoodstuffUse;
 
 import java.util.ArrayList;
 import java.util.Collections;

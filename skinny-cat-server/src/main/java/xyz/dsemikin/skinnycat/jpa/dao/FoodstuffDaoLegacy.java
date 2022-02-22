@@ -1,6 +1,6 @@
 package xyz.dsemikin.skinnycat.jpa.dao;
 
-import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpa;
+import xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpaLegacy;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -9,12 +9,12 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Stateless
-public class FoodstuffDao {
+public class FoodstuffDaoLegacy {
 
     @Inject
-    private EntityManagerProvider entityManager;
+    private EntityManagerProviderLegacy entityManager;
 
-    public void put(final FoodstuffDtoJpa foodstuff) {
+    public void put(final FoodstuffDtoJpaLegacy foodstuff) {
         entityManager.em().persist(foodstuff);
     }
 
@@ -26,12 +26,12 @@ public class FoodstuffDao {
     }
 
     public static final String ALL = "from foodstuff";
-    public List<FoodstuffDtoJpa> all() {
-        final TypedQuery<FoodstuffDtoJpa> query = entityManager.em().createQuery(ALL, FoodstuffDtoJpa.class);
+    public List<FoodstuffDtoJpaLegacy> all() {
+        final TypedQuery<FoodstuffDtoJpaLegacy> query = entityManager.em().createQuery(ALL, FoodstuffDtoJpaLegacy.class);
         return query.getResultList();
     }
 
-    public FoodstuffDtoJpa findById(final long id) {
-        return entityManager.em().find(FoodstuffDtoJpa.class, id);
+    public FoodstuffDtoJpaLegacy findById(final long id) {
+        return entityManager.em().find(FoodstuffDtoJpaLegacy.class, id);
     }
 }

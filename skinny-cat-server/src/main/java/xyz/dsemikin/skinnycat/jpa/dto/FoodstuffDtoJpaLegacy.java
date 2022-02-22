@@ -1,6 +1,6 @@
 package xyz.dsemikin.skinnycat.jpa.dto;
 
-import xyz.dsemikin.skynnycat.data.FoodstuffUnit;
+import xyz.dsemikin.skinnycat.data.FoodstuffUnit;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity(name = "foodstuff")
 @Table(name = "foodstuff")
-public class FoodstuffDtoJpa {
+public class FoodstuffDtoJpaLegacy {
 
     @Id
     @GeneratedValue
@@ -17,13 +17,13 @@ public class FoodstuffDtoJpa {
     private String name;
     private FoodstuffUnit unit;
 
-    public FoodstuffDtoJpa() {
+    public FoodstuffDtoJpaLegacy() {
         id = 0;
         name = "";
         unit = FoodstuffUnit.UNIT;
     }
 
-    public FoodstuffDtoJpa(long id, String name, FoodstuffUnit unit) {
+    public FoodstuffDtoJpaLegacy(long id, String name, FoodstuffUnit unit) {
         this.id = id;
         this.name = name;
         this.unit = unit;

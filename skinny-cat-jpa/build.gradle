@@ -1,0 +1,14 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Consumer of this library should provide implementation (e.g. hibernate)
+    compileOnly "jakarta.persistence:jakarta.persistence-api:2.2.3"
+
+    implementation project(":skinny-cat-data")
+}
