@@ -18,16 +18,16 @@ public class AllDayMenusController {
 
         allDayMenus = new ArrayList<>();
 
-        final List<FoodstuffUse> firstMenuFoodstuffs = new ArrayList<>();
-        firstMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(1L), 5.0));
-        firstMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(2L), 10.0));
-        allDayMenus.add(new DayMenu(1L, "Week 1, Day 1", "Breakfast: bla, Supper: bla", firstMenuFoodstuffs));
-
-        final List<FoodstuffUse> secondMenuFoodstuffs = new ArrayList<>();
-        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(3), 7.0));
-        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(1), 3.0));
-        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(2), 1.0));
-        allDayMenus.add(new DayMenu(2L, "Week 1, Day 2", "some other description", secondMenuFoodstuffs));
+//        final List<FoodstuffUse> firstMenuFoodstuffs = new ArrayList<>();
+//        firstMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(1L), 5.0));
+//        firstMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(2L), 10.0));
+//        allDayMenus.add(new DayMenu(1L, "Week 1, Day 1", "Breakfast: bla, Supper: bla", firstMenuFoodstuffs));
+//
+//        final List<FoodstuffUse> secondMenuFoodstuffs = new ArrayList<>();
+//        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(3), 7.0));
+//        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(1), 3.0));
+//        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(2), 1.0));
+//        allDayMenus.add(new DayMenu(2L, "Week 1, Day 2", "some other description", secondMenuFoodstuffs));
     }
 
     public List<Long> allIds() {

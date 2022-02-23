@@ -1,53 +1,46 @@
 package xyz.dsemikin.skinnycat.guiswing.gui.foodstuff;
 
-import xyz.dsemikin.skinnycat.data.FoodstuffUnit;
 import xyz.dsemikin.skinnycat.guiswing.logic.FoodstuffController;
 
-import javax.swing.DefaultCellEditor;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.WindowConstants;
-import javax.swing.table.TableColumn;
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
 
 public class FoodstuffWindow {
 
+    private final FoodstuffController controller;
+    private final FoodstuffWindowView view;
+    private final FoodstuffTableModel tableModel;
+
     public FoodstuffWindow(final FoodstuffController foodstuffController) {
-        JFrame frame = new JFrame("Foodstuff Editor");
-        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        controller = foodstuffController;
+        tableModel = new FoodstuffTableModel(foodstuffController);
+        view = new FoodstuffWindowView(tableModel);
 
-        final Container contentPane = frame.getContentPane();
-        contentPane.setLayout(new GridBagLayout());
+        view.addButton().addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addFoodstuff();
+            }
+        });
 
-        final JTable table = new JTable(new FoodstuffTableModel(foodstuffController));
-        table.setFillsViewportHeight(true);
-
-        // TODO: Can we do it inside table model? Should we do it there? Probably yes
-        JComboBox<FoodstuffUnit> comboBox = new JComboBox<>();
-        comboBox.addItem(FoodstuffUnit.UNIT);
-        comboBox.addItem(FoodstuffUnit.GRAM);
-
-        final TableColumn unitColumn = table.getColumnModel().getColumn(1);
-        unitColumn.setCellEditor(new DefaultCellEditor(comboBox));
-
-        final JScrollPane scrollPane = new JScrollPane(table);
-
-        final GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 2;
-        constraints.fill = GridBagConstraints.BOTH;
-        constraints.weightx = 1.0;
-        constraints.weighty = 1.0;
-        contentPane.add(scrollPane, constraints);
-
-        frame.setSize(500, 500);
-        frame.setVisible(true);
+        view.deleteButton().addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteFoodstuff();
+            }
+        });
     }
 
-}
+    private void addFoodstuff() {
+        controller.addFoodstuffWithDefaultParameters();
+        tableModel.refreshData();
+    }
 
+    private void deleteFoodstuff() {
+        int minSelectionIndex = view.table().getSelectionModel().getMinSelectionIndex();
+        if (minSelectionIndex >= 0) {
+            controller.deleteFoodstuff(minSelectionIndex);
+            tableModel.refreshData();
+        }
+    }
+}

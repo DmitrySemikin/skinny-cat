@@ -16,20 +16,37 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SkinnyCatMainWindowView {
 
     private final FoodstuffController foodstuffController;
+    private final List<Runnable> cleanupActions;
 
     public SkinnyCatMainWindowView(
             final FoodstuffController foodstuffController,
             final AllDayMenusController allDayMenusController,
-            final DayMenuDetailsController dayMenuDetailsController
+            final DayMenuDetailsController dayMenuDetailsController,
+            final Runnable cleanupAction
     ) {
+        this.cleanupActions = new ArrayList<>();
+
         this.foodstuffController = foodstuffController;
+        this.cleanupActions.add(cleanupAction);
 
         JFrame frame = new JFrame("Skinny Cat");
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
+        frame.addWindowListener(new java.awt.event.WindowAdapter(){
+            @Override
+            public void windowClosing(WindowEvent e) {
+                cleanup();
+                super.windowClosing(e);
+            }
+        });
+
 
         final Container contentPane = frame.getContentPane();
         contentPane.setLayout(new GridBagLayout());
@@ -142,4 +159,9 @@ public class SkinnyCatMainWindowView {
         new FoodstuffWindow(foodstuffController);
     }
 
+    private void cleanup() {
+        for (Runnable cleanupAction : cleanupActions) {
+            cleanupAction.run();
+        }
+    }
 }

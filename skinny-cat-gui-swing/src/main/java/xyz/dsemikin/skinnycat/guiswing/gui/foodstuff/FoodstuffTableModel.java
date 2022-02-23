@@ -77,7 +77,7 @@ class FoodstuffTableModel extends AbstractTableModel {
         refreshData();
     }
 
-    private void refreshData() {
+    public void refreshData() {
         ids = controller.allIds();
         // Theoretically we could use more efficient ways,
         // but performance in not a concern in this case

@@ -15,7 +15,7 @@ public class FoodstuffDao {
     }
 
     public void put(final FoodstuffDtoJpa foodstuff) {
-        entityManagerProvider.doWithEntityManager(entityManager -> entityManager.persist(foodstuff));
+        entityManagerProvider.doInTransaction(entityManager -> entityManager.persist(foodstuff));
     }
 
     public static final String DELETE_FOODSTUFF = "delete from foodstuff f where f.id=:foodstuff_id";
@@ -29,7 +29,7 @@ public class FoodstuffDao {
 
     public static final String ALL = "from foodstuff";
     public List<FoodstuffDtoJpa> all() {
-        return entityManagerProvider.doWithEntityManagerWithResult(entityManager -> {
+        return entityManagerProvider.doInTransactionWithResult(entityManager -> {
             final TypedQuery<FoodstuffDtoJpa> query = entityManager.createQuery(ALL, FoodstuffDtoJpa.class);
             return query.getResultList();
         });
