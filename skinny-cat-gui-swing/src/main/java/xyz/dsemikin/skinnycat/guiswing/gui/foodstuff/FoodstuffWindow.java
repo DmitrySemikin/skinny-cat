@@ -39,7 +39,7 @@ public class FoodstuffWindow {
     private void deleteFoodstuff() {
         int minSelectionIndex = view.table().getSelectionModel().getMinSelectionIndex();
         if (minSelectionIndex >= 0) {
-            controller.deleteFoodstuff(minSelectionIndex);
+            controller.deleteFoodstuff(tableModel.dataId(minSelectionIndex));
             tableModel.refreshData();
         }
     }

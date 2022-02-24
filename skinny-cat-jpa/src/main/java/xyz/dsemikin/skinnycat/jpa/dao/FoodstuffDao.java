@@ -14,8 +14,12 @@ public class FoodstuffDao {
         this.entityManagerProvider = entityManagerProvider;
     }
 
-    public void put(final FoodstuffDtoJpa foodstuff) {
+    public void persistNew(final FoodstuffDtoJpa foodstuff) {
         entityManagerProvider.doInTransaction(entityManager -> entityManager.persist(foodstuff));
+    }
+
+    public void persistExisting(final FoodstuffDtoJpa foodstuff) {
+        entityManagerProvider.doInTransaction(entityManager -> entityManager.merge(foodstuff));
     }
 
     public static final String DELETE_FOODSTUFF = "delete from foodstuff f where f.id=:foodstuff_id";

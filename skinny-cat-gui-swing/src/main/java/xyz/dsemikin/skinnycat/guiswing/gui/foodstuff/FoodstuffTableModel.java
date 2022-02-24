@@ -84,4 +84,7 @@ class FoodstuffTableModel extends AbstractTableModel {
         fireTableDataChanged();
     }
 
+    public long dataId(final int rowIndex) {
+        return ids.get(rowIndex);
+    }
 }
