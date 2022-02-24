@@ -64,6 +64,7 @@ public class SkinnyCatMainWindowView {
 
 
         final JButton startFoodstuffEditorButton = new JButton("Manage Foodstuffs...");
+        // TODO: Move action mapping to parent class
         startFoodstuffEditorButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,18 +74,20 @@ public class SkinnyCatMainWindowView {
         final GridBagConstraints startFoodstuffEditorButtonConstraints = new GridBagConstraints();
         startFoodstuffEditorButtonConstraints.gridx = 0;
         startFoodstuffEditorButtonConstraints.gridy = 1;
-        startFoodstuffEditorButtonConstraints.weightx = 0.0;
-        startFoodstuffEditorButtonConstraints.weighty = 0.0;
         contentPane.add(startFoodstuffEditorButton, startFoodstuffEditorButtonConstraints);
 
+        final JButton addDayMenuButton = new JButton("Add");
+        final GridBagConstraints addDayMenuButtonConstraints = new GridBagConstraints();
+        addDayMenuButtonConstraints.gridx = 1;
+        addDayMenuButtonConstraints.gridy = 1;
+        contentPane.add(addDayMenuButton, addDayMenuButtonConstraints);
 
-        final JButton addDayMenuToActiveButton = new JButton(">>");
-        final GridBagConstraints addDayMenuToActiveButtonConstraints = new GridBagConstraints();
-        addDayMenuToActiveButtonConstraints.gridx = 1;
-        addDayMenuToActiveButtonConstraints.gridy = 1;
-        addDayMenuToActiveButtonConstraints.weightx = 0.0;
-        addDayMenuToActiveButtonConstraints.weighty = 0.0;
-        contentPane.add(addDayMenuToActiveButton, addDayMenuToActiveButtonConstraints);
+        final JButton deleteDayMenuButton = new JButton("Delete");
+        final GridBagConstraints deleteDayMenuButtonConstraints = new GridBagConstraints();
+        deleteDayMenuButtonConstraints.gridx = 2;
+        deleteDayMenuButtonConstraints.gridy = 1;
+        deleteDayMenuButtonConstraints.anchor = GridBagConstraints.WEST;
+        contentPane.add(deleteDayMenuButton, deleteDayMenuButtonConstraints);
 
 
         final AllDayMenusPanel allDayMenus = new AllDayMenusPanel(allDayMenusController, dayMenuDetailsController);
@@ -106,39 +109,44 @@ public class SkinnyCatMainWindowView {
         activeDayMenusLabelConstraints.gridy = 0;
         activeDayMenusLabelConstraints.gridwidth = 5;
         activeDayMenusLabelConstraints.weightx = 1.0;
-        activeDayMenusLabelConstraints.weighty = 0.0;
         activeDayMenusLabelConstraints.fill = GridBagConstraints.HORIZONTAL;
         contentPane.add(activeDayMenusLabel, activeDayMenusLabelConstraints);
+
+        final JButton addDayMenuToActiveButton = new JButton(">>");
+        final GridBagConstraints addDayMenuToActiveButtonConstraints = new GridBagConstraints();
+        addDayMenuToActiveButtonConstraints.gridx = gridX2ndColumn;
+        addDayMenuToActiveButtonConstraints.gridy = 1;
+        contentPane.add(addDayMenuToActiveButton, addDayMenuToActiveButtonConstraints);
 
 
         final JButton deleteActiveMenuButton = new JButton("Delete");
         final GridBagConstraints deleteActiveMenuButtonConstraints = new GridBagConstraints();
-        deleteActiveMenuButtonConstraints.gridx = gridX2ndColumn;
+        deleteActiveMenuButtonConstraints.gridx = gridX2ndColumn + 1;
         deleteActiveMenuButtonConstraints.gridy = 1;
-        deleteActiveMenuButtonConstraints.weightx = 0.0;
-        deleteActiveMenuButtonConstraints.weighty = 0.0;
         contentPane.add(deleteActiveMenuButton, deleteActiveMenuButtonConstraints);
 
 
         final JButton upActiveMenuButton = new JButton("Up");
         final GridBagConstraints upActiveMenuButtonConstraints = new GridBagConstraints();
-        upActiveMenuButtonConstraints.gridx = gridX2ndColumn + 1;
+        upActiveMenuButtonConstraints.gridx = gridX2ndColumn + 2;
         upActiveMenuButtonConstraints.gridy = 1;
         contentPane.add(upActiveMenuButton, upActiveMenuButtonConstraints);
 
 
         final JButton downActiveMenuButton = new JButton("Down");
         final GridBagConstraints downActiveMenuButtonConstraints = new GridBagConstraints();
-        downActiveMenuButtonConstraints.gridx = gridX2ndColumn + 2;
+        downActiveMenuButtonConstraints.gridx = gridX2ndColumn + 3;
         downActiveMenuButtonConstraints.gridy = 1;
         contentPane.add(downActiveMenuButton, downActiveMenuButtonConstraints);
 
 
         final JButton fullFoodstuffListButton = new JButton("Full Foodstuff List...");
         final GridBagConstraints fullFoodstuffListButtonConstraints = new GridBagConstraints();
-        fullFoodstuffListButtonConstraints.gridx = gridX2ndColumn + 3;
+        fullFoodstuffListButtonConstraints.gridx = gridX2ndColumn + 4;
         fullFoodstuffListButtonConstraints.gridy = 1;
+        fullFoodstuffListButtonConstraints.anchor = GridBagConstraints.WEST;
         contentPane.add(fullFoodstuffListButton, fullFoodstuffListButtonConstraints);
+
 
 
         final DayMenusListView activeDayMenus = new DayMenusListView(dayMenuDetailsController);
