@@ -22,7 +22,7 @@ public class FoodstuffDao {
         entityManagerProvider.doInTransaction(entityManager -> entityManager.merge(foodstuff));
     }
 
-    public static final String DELETE_FOODSTUFF = "delete from foodstuff f where f.id=:foodstuff_id";
+    private static final String DELETE_FOODSTUFF = "delete from foodstuff f where f.id=:foodstuff_id";
     public void delete(final long id) {
         entityManagerProvider.doInTransaction(entityManager -> {
             final Query query = entityManager.createQuery(DELETE_FOODSTUFF);
@@ -31,7 +31,7 @@ public class FoodstuffDao {
         });
     }
 
-    public static final String ALL = "from foodstuff";
+    private static final String ALL = "from foodstuff";
     public List<FoodstuffDtoJpa> all() {
         return entityManagerProvider.doInTransactionWithResult(entityManager -> {
             final TypedQuery<FoodstuffDtoJpa> query = entityManager.createQuery(ALL, FoodstuffDtoJpa.class);
@@ -40,9 +40,8 @@ public class FoodstuffDao {
     }
 
     public FoodstuffDtoJpa findById(final long id) {
-        return entityManagerProvider.doWithEntityManagerWithResult(
+        return entityManagerProvider.doInTransactionWithResult(
                 entityManager -> entityManager.find(FoodstuffDtoJpa.class, id)
         );
     }
-
 }

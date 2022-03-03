@@ -1,4 +1,4 @@
-package xyz.dsemikin.skinnycat.guiswing.gui.daymenuslist;
+package xyz.dsemikin.skinnycat.guiswing.gui.alldaymenus;
 
 import xyz.dsemikin.skinnycat.data.DayMenu;
 import xyz.dsemikin.skinnycat.guiswing.logic.AllDayMenusController;

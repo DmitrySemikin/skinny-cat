@@ -1,6 +1,6 @@
 package xyz.dsemikin.skinnycat.guiswing.gui;
 
-import xyz.dsemikin.skinnycat.guiswing.gui.daymenuslist.AllDayMenusPanel;
+import xyz.dsemikin.skinnycat.guiswing.gui.alldaymenus.AllDayMenusPanel;
 import xyz.dsemikin.skinnycat.guiswing.gui.daymenuslist.DayMenusListView;
 import xyz.dsemikin.skinnycat.guiswing.gui.foodstuff.FoodstuffWindow;
 import xyz.dsemikin.skinnycat.guiswing.logic.AllDayMenusController;
