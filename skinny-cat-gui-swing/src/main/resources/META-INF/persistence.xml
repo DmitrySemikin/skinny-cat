@@ -14,7 +14,10 @@
             Persistence unit for Skinny-Cat application.
         </description>
 
+        <class>xyz.dsemikin.skinnycat.jpa.dto.ActiveDayMenuDtoJpa</class>
+        <class>xyz.dsemikin.skinnycat.jpa.dto.DayMenuDtoJpa</class>
         <class>xyz.dsemikin.skinnycat.jpa.dto.FoodstuffDtoJpa</class>
+        <class>xyz.dsemikin.skinnycat.jpa.dto.FoodstuffUseDtoJpa</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />

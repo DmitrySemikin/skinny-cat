@@ -1,7 +1,10 @@
 package xyz.dsemikin.skinnycat.guiswing.logic;
 
 import xyz.dsemikin.skinnycat.data.DayMenu;
-import xyz.dsemikin.skinnycat.data.FoodstuffUse;
+import xyz.dsemikin.skinnycat.jpa.dao.DayMenuDao;
+import xyz.dsemikin.skinnycat.jpa.dao.EntityManagerProvider;
+import xyz.dsemikin.skinnycat.jpa.dto.DayMenuDtoJpa;
+import xyz.dsemikin.skinnycat.jpa.mapper.DayMenuMapperJpa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,47 +12,52 @@ import java.util.Optional;
 
 public class AllDayMenusController {
 
-    final List<DayMenu> allDayMenus;
-    final FoodstuffController foodstuffController;
+    private final DayMenuDao dao;
+    private final DayMenuMapperJpa mapper;
 
-    public AllDayMenusController(final FoodstuffController foodstuffController) {
-
-        this.foodstuffController = foodstuffController;
-
-        allDayMenus = new ArrayList<>();
-
-//        final List<FoodstuffUse> firstMenuFoodstuffs = new ArrayList<>();
-//        firstMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(1L), 5.0));
-//        firstMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(2L), 10.0));
-//        allDayMenus.add(new DayMenu(1L, "Week 1, Day 1", "Breakfast: bla, Supper: bla", firstMenuFoodstuffs));
-//
-//        final List<FoodstuffUse> secondMenuFoodstuffs = new ArrayList<>();
-//        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(3), 7.0));
-//        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(1), 3.0));
-//        secondMenuFoodstuffs.add(new FoodstuffUse(foodstuffController.get(2), 1.0));
-//        allDayMenus.add(new DayMenu(2L, "Week 1, Day 2", "some other description", secondMenuFoodstuffs));
+    public AllDayMenusController(final EntityManagerProvider entityManagerProvider) {
+        this.mapper = new DayMenuMapperJpa();
+        this.dao = new DayMenuDao(entityManagerProvider);
     }
 
     public List<Long> allIds() {
-        return allDayMenus.stream().map(DayMenu::id).toList();
+        return mapper.fromDtoList(dao.all()).stream().map(DayMenu::id).sorted().toList();
     }
 
     public Optional<DayMenu> get(final long id) {
-        return allDayMenus.stream().filter(dayMenu -> dayMenu.id() == id).findFirst();
+        DayMenuDtoJpa maybeDto = dao.findById(id);
+        if (maybeDto != null) {
+            return Optional.of(mapper.fromDto(maybeDto)); // TODO: check for null
+        } else {
+            return Optional.empty();
+        }
     }
 
     public void setName(final long id, final String name) {
-        final Optional<DayMenu> maybeDayMenu = get(id);
-        maybeDayMenu.ifPresent(dayMenu -> dayMenu.setName(name));
+        final DayMenuDtoJpa maybeDayMenu = dao.findById(id);
+        if (maybeDayMenu != null) {
+            maybeDayMenu.setName(name);
+            dao.persistExisting(maybeDayMenu);
+        }
+        // TODO: else
     }
 
     public void setDescription(final long id, final String description) {
-        final Optional<DayMenu> maybeDayMenu = get(id);
-        maybeDayMenu.ifPresent(dayMenu -> dayMenu.setDescription(description));
+        final DayMenuDtoJpa maybeDayMenu = dao.findById(id);
+        if (maybeDayMenu != null) {
+            maybeDayMenu.setDescription(description);
+            dao.persistExisting(maybeDayMenu);
+        }
+        // TODO: else
     }
 
-    public void setFoodstuffs(final long id, final List<FoodstuffUse> newFoodstuffs) {
-        final Optional<DayMenu> maybeDayMenu = get(id);
-        maybeDayMenu.ifPresent(dayMenu -> dayMenu.setFoodstuffs(newFoodstuffs));
+    public void addDayMenuWithDefaultParameters() {
+        final DayMenuDtoJpa dayMenuDto = mapper.toDto(new DayMenu(0L, "DayMenu Name", "Description", new ArrayList<>()));
+        dayMenuDto.setId(null);
+        dao.persistNew(dayMenuDto);
+    }
+
+    public void deleteDayMenu(final long id) {
+        dao.delete(id);
     }
 }

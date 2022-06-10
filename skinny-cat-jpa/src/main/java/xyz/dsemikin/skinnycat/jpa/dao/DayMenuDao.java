@@ -22,16 +22,16 @@ public class DayMenuDao {
         entityManagerProvider.doInTransaction(entityManager -> entityManager.merge(dayMenu));
     }
 
-    public static final String DELETE_DAYMENU = "delete from daymenu d where d.id = :daymenu_id";
+    public static final String DELETE_DAYMENU = "delete from day_menu d where d.id = :day_menu_id";
     public void delete(final long id) {
         entityManagerProvider.doInTransaction(entityManager -> {
             final Query query = entityManager.createQuery(DELETE_DAYMENU);
-            query.setParameter("daymenu_id", id);
+            query.setParameter("day_menu_id", id);
             query.executeUpdate();
         });
     }
 
-    public static final String ALL = "from daymenu";
+    public static final String ALL = "from day_menu";
     public List<DayMenuDtoJpa> all() {
         return entityManagerProvider.doInTransactionWithResult(entityManager -> {
             final TypedQuery<DayMenuDtoJpa> query = entityManager.createQuery(ALL, DayMenuDtoJpa.class);

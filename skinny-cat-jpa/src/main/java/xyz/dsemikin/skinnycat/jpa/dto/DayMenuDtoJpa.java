@@ -1,9 +1,12 @@
 package xyz.dsemikin.skinnycat.jpa.dto;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -17,7 +20,14 @@ public class DayMenuDtoJpa {
     private String name;
     private String description;
 
-    @Column(name = "foodstuff_list")
+    // TODO: it is suggested, that it is better, when the "many" side owns the relation
+    // Note, that we can only make this end of association mandatory, if we make it navigable from other side.
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "day_menu_id")
     private List<FoodstuffUseDtoJpa> foodstuffList;
 
     public DayMenuDtoJpa() {

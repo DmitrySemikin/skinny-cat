@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name = "active_day_menu")
@@ -14,7 +16,8 @@ public class ActiveDayMenuDtoJpa {
     @GeneratedValue
     private Long id;
 
-    @Column(name="day_menu")
+    @OneToOne
+    @JoinColumn(name="day_menu_id")
     private DayMenuDtoJpa dayMenu;
 
     /** Used to order activeDayMenus in activeDayMenuList */

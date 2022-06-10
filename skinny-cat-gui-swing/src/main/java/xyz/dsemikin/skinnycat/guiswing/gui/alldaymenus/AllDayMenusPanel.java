@@ -78,6 +78,20 @@ public class AllDayMenusPanel {
         }
     }
 
+    public void addDayMenuWithDefaultParameters() {
+        controller.addDayMenuWithDefaultParameters();
+        allDayMenusTableModel.refreshData();
+    }
+
+    public void removeSelectedDayMenu() {
+        final int selectionIndex = view.dayMenusTable().getSelectionModel().getMinSelectionIndex();
+        if (selectionIndex >= 0) {
+            final Long selectedId = controller.allIds().get(selectionIndex);
+            controller.deleteDayMenu(selectedId);
+            allDayMenusTableModel.refreshData();
+        }
+    }
+
     public JPanel rootPane() {
         return view.rootPane();
     }

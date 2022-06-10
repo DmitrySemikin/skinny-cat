@@ -1,10 +1,10 @@
 package xyz.dsemikin.skinnycat.jpa.dto;
 
-import xyz.dsemikin.skinnycat.data.Foodstuff;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity(name = "foodstuff_use")
@@ -14,13 +14,18 @@ public class FoodstuffUseDtoJpa {
     @Id
     @GeneratedValue
     private Long id;
-    private Foodstuff foodstuff;
+
+    @ManyToOne
+    @JoinColumn(name = "foodstuff_id")
+    private FoodstuffDtoJpa foodstuff;
     private Double quantity;
 
+    @SuppressWarnings("unused")
     public FoodstuffUseDtoJpa() {
+        // Required by JPA
     }
 
-    public FoodstuffUseDtoJpa(Long id, Foodstuff foodstuff, Double quantity) {
+    public FoodstuffUseDtoJpa(Long id, FoodstuffDtoJpa foodstuff, Double quantity) {
         this.id = id;
         this.foodstuff = foodstuff;
         this.quantity = quantity;
@@ -34,11 +39,11 @@ public class FoodstuffUseDtoJpa {
         this.id = id;
     }
 
-    public Foodstuff getFoodstuff() {
+    public FoodstuffDtoJpa getFoodstuff() {
         return foodstuff;
     }
 
-    public void setFoodstuff(Foodstuff foodstuff) {
+    public void setFoodstuff(FoodstuffDtoJpa foodstuff) {
         this.foodstuff = foodstuff;
     }
 
