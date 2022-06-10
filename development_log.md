@@ -29,6 +29,18 @@ new document about the point "1" above:
 
 Write some version of this document.
 
+Update TODO.
+
+I need to specify the relations between GUI elements of the main window.
+It is not easy to do without using diagrams, but I want to avoid using
+pictures in these markdown documents. So, let's first try to do it in text.
+I will do it in [README.md]()
+
+Trying to describe the structure of the gui and think about, how the components
+needs to be connected. What will call the modifications on components: controller
+or view-controller? Or call "update" on sub-components after model is updated?
+Controller does the update... but view-controller has needed refrence...
+still something to think about.
 
 
 # TODO:
