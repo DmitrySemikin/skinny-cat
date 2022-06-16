@@ -43,6 +43,14 @@ Controller does the update... but view-controller has needed refrence...
 still something to think about.
 
 
+
+# 2022-06-16, 19-35
+
+Continue to develop my thoughts about the GUI layers:
+[2022-06-10_controller_and_view_ownership.md](./docs_and_thoughts/2022-06-10_controller_and_view_ownership.md).
+
+
+
 # TODO:
 
 - describe my thought about the using JPA in "thoughts" directory in separate document.
