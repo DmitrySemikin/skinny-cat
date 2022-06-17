@@ -49,6 +49,16 @@ still something to think about.
 Continue to develop my thoughts about the GUI layers:
 [2022-06-10_controller_and_view_ownership.md](./docs_and_thoughts/2022-06-10_controller_and_view_ownership.md).
 
+More or less completed, what I wanted to write there. Now I'd like to rewrite
+the swing-gui, which I have using those concepts (in fact I would prefer to
+get rid of swing and switch to JavaFX, but for the completeness of this experiment
+I will stick to swing).
+
+So I start to do the changes. It will break a lot, but I'd like to concentrate
+first on the GUI and for now disconnect it from the persistency-controllers.
+This will make for a while the applicaiton non-functional, but I will try to
+keep it buildable at least.
+
 
 
 # TODO:

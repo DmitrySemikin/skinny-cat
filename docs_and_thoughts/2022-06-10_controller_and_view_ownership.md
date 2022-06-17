@@ -172,3 +172,14 @@ Question: how would it be in Android app?
 
 It is questionable, if this object should be called "controller",
 because it will most likely not implement any logic.
+
+
+
+## Requirements are specified for GUI representation
+
+Interestingly, even though we try to keep GUI secondary and to make
+the application logic abstract, but the user-functionality, which
+is described in the requirements is usually specified in terms of
+GUI, which is natural. So design of feature-controllers and further
+data-controllers is to certain extent the "reverse engineering" for
+those GUI-requirements.
