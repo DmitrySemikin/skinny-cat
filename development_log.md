@@ -61,6 +61,15 @@ keep it buildable at least.
 
 
 
+# 2022-06-17, 20-13
+
+Last time I did not start to implement the changes, so I a looking into it now...
+
+Trying to draw a class diagram for all layers. Diagrams are stored online
+on [https://online.visual-paradigm.com]() .
+
+
+
 # TODO:
 
 - describe my thought about the using JPA in "thoughts" directory in separate document.

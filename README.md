@@ -1,5 +1,8 @@
 # Skinny Cat #
 
+Some diagrams are available on https://online.visual-paradigm.com
+
+
 * Unit: day menu
   * Title (text, unique, mandatory)
   * Menu name (text, opt)
