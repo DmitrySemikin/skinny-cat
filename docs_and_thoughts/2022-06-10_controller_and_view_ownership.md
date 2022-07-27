@@ -175,6 +175,21 @@ because it will most likely not implement any logic.
 
 
 
+## Passing messages (events) between different controllers
+
+How to pass some message from one controller to parallel controller?
+E.g. if we updated data and want other GUI components to be updated.
+
+It is possible to register listeners directly (one controller to another),
+but I think, this way it is too hard to trace.
+
+So my solution will be to pass events to parants and from parents to
+children (even though it may require additional ceremony).
+
+In this constellation the root controller will at least provide the
+function of conductor of events.
+
+
 ## Requirements are specified for GUI representation
 
 Interestingly, even though we try to keep GUI secondary and to make

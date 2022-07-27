@@ -9,13 +9,13 @@ import xyz.dsemikin.skinnycat.guiswing.logic.FoodstuffController;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 
-public class SkinnyCatMainWindow {
+public class SkinnyCatMainWindowViewController {
 
     private final AllDayMenusController allDayMenusController;
     private final FoodstuffController foodstuffController;
     private final SkinnyCatMainWindowView view;
 
-    public SkinnyCatMainWindow() {
+    public SkinnyCatMainWindowViewController() {
 
         EntityManagerProviderHibernate entityManagerProvider = new EntityManagerProviderHibernate();
 

@@ -70,6 +70,17 @@ on [https://online.visual-paradigm.com]() .
 
 
 
+# 2022-07-25, 17-20
+
+Start trying to implement the ideas abou those layers and ownership...
+
+
+
+# 2022-07-27, 21-34
+
+Continue implementation. First try to implement views and view controllers.
+
+
 # TODO:
 
 - describe my thought about the using JPA in "thoughts" directory in separate document.
