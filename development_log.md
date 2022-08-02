@@ -81,6 +81,26 @@ Start trying to implement the ideas abou those layers and ownership...
 Continue implementation. First try to implement views and view controllers.
 
 
+
+# 2022-07-30, 19-51
+
+Last time I implemented the layouts of all main views. 
+
+This time I want to start with
+the view controllers (and probably with feature controllers and persistence
+controllers).
+
+But first I will write some ideas about using JPA.
+
+
+
+# 2022-08-02, 19-23
+
+Now the thoughts about JPA are written (in some form). I can start with
+the implementation of the feature controllers and persistence controllers.
+
+
+
 # TODO:
 
 - describe my thought about the using JPA in "thoughts" directory in separate document.
